@@ -141,8 +141,8 @@ class PokemonGoBot(object):
 
                 for x in range(1, len(group_cp)):
                     print('[x] Releasing Pokemon with id {} with CP {} to be released'.format(id, group_cp[x]))
-                    self.api.release_pokemon(pokemon_id=pokemon_groups[id][group_cp[x]])
-                    response_dict = self.api.call()
+                    # self.api.release_pokemon(pokemon_id=pokemon_groups[id][group_cp[x]])
+                    # response_dict = self.api.call()
                     time.sleep(2)
 
         print('[x] Transfering Done.')
