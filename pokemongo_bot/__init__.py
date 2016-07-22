@@ -142,6 +142,9 @@ class PokemonGoBot(object):
                 group_cp.reverse()
 
                 for x in range(1, len(group_cp)):
+                    if self.config.cp and group_cp[x] > self.config.cp:
+                        continue
+
                     print('[x] Releasing Pokemon with id {} with CP {} to be released'.format(id, group_cp[x]))
                     # self.api.release_pokemon(pokemon_id=pokemon_groups[id][group_cp[x]])
                     # response_dict = self.api.call()
@@ -165,8 +168,6 @@ class PokemonGoBot(object):
             group_pokemon = pokemon['inventory_item_data']['pokemon_data']['id']
             group_pokemon_cp = pokemon['inventory_item_data']['pokemon_data']['cp']
 
-            if self.config.cp and group_pokemon_cp > self.config.cp:
-                continue
             if group_id not in pokemon_groups:
                 pokemon_groups[group_id] = {}
 
